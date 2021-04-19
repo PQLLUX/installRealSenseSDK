@@ -1,7 +1,7 @@
 #!/bin/bash
 # installDependencies.sh
 # Install dependencies for  the Intel Realsense library librealsense2 on a Jetson Nano Developer Kit
-# Copyright (c) 2016-19 Jetsonhacks 
+# Copyright (c) 2016-19 Jetsonhacks
 # MIT License
 red=`tput setaf 1`
 green=`tput setaf 2`
@@ -22,5 +22,4 @@ apt-get install libgtk-3-dev libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev -y
 apt-get install qtcreator -y
 
 # Add Python 3 support
-apt-get install -y python3 python3-dev
-
+apt-get install -y python3 python3-dev python3-sphinx
