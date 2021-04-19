@@ -122,7 +122,7 @@ sudo make install
 if  grep -Fxq 'export PYTHONPATH=$PYTHONPATH:/usr/local/lib' ~/.bashrc ; then
     echo "PYTHONPATH already exists in .bashrc file"
 else
-   echo 'export PYTHONPATH=$PYTHONPATH:/usr/local/lib' >> ~/.bashrc
+   echo 'export PYTHONPATH=$PYTHONPATH:/usr/local/lib:/usr/local/lib/python3.6/pyrealsense2' >> ~/.bashrc
    echo "PYTHONPATH added to ~/.bashrc. Pyhon wrapper is now available for importing pyrealsense2"
 fi
 
