@@ -1,12 +1,12 @@
 #!/bin/bash
 # Builds the Intel Realsense library librealsense on a Jetson Nano Development Kit
-# Copyright (c) 2016-19 Jetsonhacks 
+# Copyright (c) 2016-19 Jetsonhacks
 # MIT License
 
 # Jetson Nano; L4T 32.2.3
 
 LIBREALSENSE_DIRECTORY=${HOME}/librealsense
-LIBREALSENSE_VERSION=v2.31.0
+LIBREALSENSE_VERSION=v2.44.0
 INSTALL_DIR=$PWD
 NVCC_PATH=/usr/local/cuda-10.0/bin/nvcc
 
@@ -81,7 +81,7 @@ cd $LIBREALSENSE_DIRECTORY
 git checkout $LIBREALSENSE_VERSION
 
 # Now compile librealsense and install
-mkdir build 
+mkdir build
 cd build
 # Build examples, including graphical ones
 echo "${green}Configuring Make system${reset}"
@@ -106,7 +106,7 @@ else
   echo "librealsense did not build " >&2
   echo "Retrying ... "
   # Single thread this time
-  time make 
+  time make
   if [ $? -eq 0 ] ; then
     echo "librealsense make successful"
   else
@@ -118,11 +118,11 @@ else
 fi
 echo "${green}Installing librealsense, headers, tools and demos${reset}"
 sudo make install
-  
+
 if  grep -Fxq 'export PYTHONPATH=$PYTHONPATH:/usr/local/lib' ~/.bashrc ; then
     echo "PYTHONPATH already exists in .bashrc file"
 else
-   echo 'export PYTHONPATH=$PYTHONPATH:/usr/local/lib' >> ~/.bashrc 
+   echo 'export PYTHONPATH=$PYTHONPATH:/usr/local/lib' >> ~/.bashrc
    echo "PYTHONPATH added to ~/.bashrc. Pyhon wrapper is now available for importing pyrealsense2"
 fi
 
@@ -141,6 +141,3 @@ echo "The demos and tools are located in /usr/local/bin"
 echo " "
 echo " -----------------------------------------"
 echo " "
-
-
-
